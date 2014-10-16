@@ -17,7 +17,7 @@ main :: IO ()
 main = do
   [username] <- getArgs
   wpms <- getWPMs username
-  let wpms' = wpms ^@.. reversed . traversed <. key "wpm" . _Number . to toRealFloat
+  let wpms' = wpms ^@.. reindexed (+1) (reversed . traversed <. key "wpm" . _Number . to toRealFloat)
   toFile def (username ++ ".svg") $ do
     layout_title .= "Typeracer WPM History"
     plot (line "WPM" [wpms' :: [(Int, Double)]])
