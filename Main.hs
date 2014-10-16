@@ -20,4 +20,4 @@ main = do
   let wpms' = zip ([1..] :: [Double]) (reverse $ map (\x -> toRealFloat (x ^?! key "wpm" . _Number) :: Double) wpms)
   toFile def (username ++ ".svg") $ do
     layout_title .= "Typeracer WPM History"
-    plot (line "WPM" [[ (d,v) | (d,v) <- wpms' ]])
+    plot (line "WPM" [wpms'])
