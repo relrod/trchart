@@ -5,7 +5,7 @@ name:                trchart
 version:             0.1.0.0
 synopsis:            typeracer grapher
 -- description:
-homepage:            https://github.com/CodeBlock/trchart
+homepage:            https://github.com/relrod/trchart
 license:             BSD3
 license-file:        LICENSE
 author:              Ricky Elrod
