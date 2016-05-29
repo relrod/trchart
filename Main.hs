@@ -20,7 +20,7 @@ main = do
   plots <- mapM plot' usernames
   toFile def ((join . intersperse "_" $ usernames) ++ ".svg") $ do
     layout_title .= "Typeracer WPM History"
-    mapM_ id plots
+    sequence_ plots
 
 plot' :: String -> IO (EC (Layout Int Double) ())
 plot' username = do
